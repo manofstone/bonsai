@@ -25,8 +25,11 @@ Gem::Specification.new do |s|
   
   s.add_dependency "rack"
   s.add_dependency "sinatra", ">= 1.0"
-  s.add_dependency "tilt", ">= 1.3"
-  s.add_dependency "liquid", ">= 2.2.2"
+  s.add_dependency "tilt" # , ">= 1.4"
+  s.add_dependency "liquid" # , ">= 2.2.2"
+  # jms mod
+  s.add_dependency "slim" # , ">= 1.3.8"
+  # s.add_dependency "haml", ">= 4.0.2"
   s.add_dependency "builder", ">= 3.0.0"
   s.add_dependency "watch", ">= 0.1.0"
   s.add_dependency "maruku", ">= 0.6.0"

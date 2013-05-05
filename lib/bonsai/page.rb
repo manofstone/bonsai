@@ -6,6 +6,9 @@ end
 
 require 'tilt'
 require 'liquid'
+# jms mod
+require 'slim'
+require 'haml'
 require 'active_support/inflector'
 
 begin 
