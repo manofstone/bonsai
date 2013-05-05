@@ -1,3 +1,7 @@
+# bonsai-fork
+
+Making a few modifications to the way the excelent bonsai gem exports its files. Making sass file generation optional as well as css compression. Also adding support for haml and slim for templates.
+
 # bonsai
 
 ![Build status](https://secure.travis-ci.org/benschwarz/bonsai.png?branch=master "Build status")
