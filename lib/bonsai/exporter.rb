@@ -121,7 +121,7 @@ module Bonsai
         Page.all.each do |page|
           Bonsai.log "\t Writing page - #{page.permalink}"
           # FileUtils.mkdir_p("#{path}#{page.permalink}")
-          File.open("#{path}#{page.permalink}.html", "w"){|file| file.write(page.render) }
+          File.open("#{path}#{page.permalink.chomp('/')}.html", "w"){|file| file.write(page.render) }
         end
       end
       
