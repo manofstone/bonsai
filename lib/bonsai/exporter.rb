@@ -41,6 +41,20 @@ module Bonsai
         write_readme
         cleanup
       end
+
+      def publish_flat_without_compression!
+        teardown
+        setup
+        copy_assets
+        # jms mod below
+        copy_public_without_css_gen
+        # compress_assets
+        write_index
+        write_pages_flat
+        write_sitemap
+        write_readme
+        cleanup
+      end
       
       def copy_public
         generate_css
@@ -98,6 +112,16 @@ module Bonsai
           Bonsai.log "\t Writing page - #{page.permalink}"
           FileUtils.mkdir_p("#{path}#{page.permalink}")
           File.open("#{path}#{page.write_path}", "w"){|file| file.write(page.render) }
+        end
+      end
+      
+      # jms mod
+      def write_pages_flat
+        Bonsai.log "Writing pages"
+        Page.all.each do |page|
+          Bonsai.log "\t Writing page - #{page.permalink}"
+          # FileUtils.mkdir_p("#{path}#{page.permalink}")
+          File.open("#{path}#{page.permalink}.html", "w"){|file| file.write(page.render) }
         end
       end
       
