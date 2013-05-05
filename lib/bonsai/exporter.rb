@@ -27,9 +27,32 @@ module Bonsai
         write_readme
         cleanup
       end
+
+      def publish_without_compression!
+        teardown
+        setup
+        copy_assets
+        # jms mod below
+        copy_public_without_css_gen
+        # compress_assets
+        write_index
+        write_pages
+        write_sitemap
+        write_readme
+        cleanup
+      end
       
       def copy_public
         generate_css
+        
+        Bonsai.log "Copying public files"
+        # Using system call because fileutils is inadequate
+        system("cp -fR '#{Bonsai.root_dir}/public/.' '#{path}/.'")
+      end
+      
+      # jms mod below
+      def copy_public_without_css_gen
+        # generate_css
         
         Bonsai.log "Copying public files"
         # Using system call because fileutils is inadequate

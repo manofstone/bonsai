@@ -55,6 +55,12 @@ opts = OptionParser.new do |opts|
     Bonsai.root_dir = Dir.pwd
     Bonsai::Exporter.publish!
   end
+
+  #jms modification below
+  opts.on("-i", "--ignore-compression", "export your site without compression, sass processing to #{Dir.pwd}/output") do
+    Bonsai.root_dir = Dir.pwd
+    Bonsai::Exporter.publish_without_compression!
+  end
   
   opts.on("--repot-assets", "only process the public, css and javascript, leave everything else as is") do
     Bonsai.root_dir = Dir.pwd
