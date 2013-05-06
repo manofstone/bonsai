@@ -1,11 +1,16 @@
-jms mod, to use pry
-# require 'irb'
-require 'pry'
+# jms mod, to use pry
+require 'irb'
 module Bonsai
   class Console
     def initialize
-      # IRB.start(__FILE__)
-      PRY.start(__FILE__)
+      silence_warnings do
+        begin
+          require 'pry'
+          IRB = Pry
+        rescue LoadError
+        end
+      end
+      IRB.start(__FILE__)
     end
   end
 end

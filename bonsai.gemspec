@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency "i18n", ">= 0.5.0"
   s.add_dependency "yui-compressor"
   s.add_dependency "sass"
+  s.add_dependency "pry"
   
   s.post_install_message = %q{
 
